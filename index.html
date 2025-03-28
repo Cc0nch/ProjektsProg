@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Corner</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background: #e0e0e0;
+        }
+        .sidebar {
+            width: 300px;
+            background: #3f5252;
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+        .search-container {
+            margin: 20px 0;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .search-container button {
+            width: 100%;
+            padding: 8px;
+            background: #2f3e3e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .content {
+            margin-left: 320px;
+            padding: 20px;
+            background: #f0f0f0;
+            flex: 1;
+        }
+        .header {
+            background: #2f3e3e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 24px;
+        }
+        .top-banner {
+            background: #87a5a5;
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            color: white;
+            font-size: 18px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 20px;
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .grid-item img {
+            width: 80%;
+            height: auto;
+            background: gray;
+            display: block;
+            margin: 0 auto;
+        }
+        .footer {
+            background: #3f5252;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                text-align: center;
+            }
+            .content {
+                margin-left: 0;
+            }
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Vinyl Corner</h2>
+        <a href="index.html">Home page</a>
+        <a href="Statistics.html">Statistics</a>
+        <a href="Upload.html">Suggest a vinyl</a>
+        <div class="search-container">
+            <input type="text" placeholder="Search music...">
+            <button>Search</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">Home page</div>
+        <p>Explore our recommendations for today, look at statistics on the most popular genres or even recommend your own vinyl to add to the daily selection. Find your next favorite track! Whether you're into timeless classics or searching for underground gems, we've got something for you. Dive into our carefully curated vinyl collection and expand your music library with hidden treasures. Don't miss out on exploring the evolving landscape of vinyl culture!</p>
+        <p>Note: Most of these tracks are on spotify, so take a look!</p>
+        <div class="top-banner">Today's Selection</div>
+        <div class="grid-container">
+            <div class="grid-item">
+                <p>Quadeca - Scrapyard</p>
+                <p>A genre-bending experimental rap album that takes you on a journey through lush soundscapes.</p>
+                <a href="https://quadeca.com/"><img src="https://cdn.shopify.com/s/files/1/0756/2893/7511/files/Scrapyard-MultiVinyl_550x825.png?v=1732856531"></a>
+            </div>
+            <div class="grid-item">
+                <p>Mili - Miracle Milk</p>
+                <p>An enchanting blend of classical, jazz, and electronic influences, featuring poetic lyrics.</p>
+                <a href="https://projectmili.com/#homemusic"><img src="https://blackscreenrecords.com/cdn/shop/products/Miracle-Milk_vinyl_black.jpg?v=1695984750"></a>
+            </div>
+            <div class="grid-item">
+                <p>Arctic Monkeys - AM</p>
+                <p>A modern rock classic with infectious riffs and a moody, cinematic atmosphere.</p>
+                <a href="https://store.arcticmonkeys.com/collections/vinyl?srsltid=AfmBOoq7zkYP8LR72m_6yQns5JgT46luup_Q1fO71OLak7mYG_6ukA78"><img src="https://thesoundofvinyl.us/cdn/shop/products/AM.jpg?v=1634247351"></a>
+            </div>
+            <div class="grid-item">
+                <p>Children Of Nova - The Complexity Of Light</p>
+                <p>A progressive rock masterpiece with soaring vocals and intricate instrumental arrangements.</p>
+                <a href="https://www.discogs.com/artist/4943746-Children-of-Nova?srsltid=AfmBOorZSBepR0bKBIp4S4suibxv1tYaLOc4S4UgxRh0RhIdtz_VGDH0"><img src="https://i.discogs.com/4ZrmJUHTJvBNkuD_g1n8RzzXi6rLF4lK2msuXZ6_GgI/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg3ODg0/NTktMTcwNzI2MzY2/Ni02MzI3LmpwZWc.jpeg"></a>
+            </div>
+            <div class="grid-item">
+                <p>Vansire - After Fillmore County</p>
+                <p>A dreamy indie-pop album full of nostalgic melodies and warm production.</p>
+                <a href="https://vansire.bandcamp.com/merch"><img src="https://f4.bcbits.com/img/0022667389_10.jpg"></a>
+            </div>
+            <div class="grid-item">
+                <p>Pop Etc - Routine</p>
+                <p>An electronic-infused indie rock album with catchy hooks and smooth vocals.</p>
+                <a href="https://www.discogs.com/artist/2708732-POP-ETC?srsltid=AfmBOoq87FAlK9TvaGdgTHwdoYg2dsQ0XAHPq5JbVESSaPhthYix8onH"><img src="https://i.discogs.com/-2hct8jZKpHju1A07ViCtL9kez_nGs69vustdqDHOcQ/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODYy/MDQwLTE1NjI3ODc1/MDktMTgzMy5qcGVn.jpeg"></a>
+            </div>
+            <div class="grid-item"> 
+                <p>Cynthoni - Monolithic Cyan Tsunami</p>
+                <p>A hypnotic blend of breakcore and ambient soundscapes, creating an otherworldly listening experience.</p>
+                <a href="https://www.discogs.com/release/31902937-Sewerslvt-Presents-Cynthoni-Pt-1-Pt-2?srsltid=AfmBOooPoeqy27ce4PrrlsMUR9Oi7vpRLnJs-it72deuCEbW-AqvCtKm"><img src="https://i.discogs.com/TxQhGfzSvY-N8y-eiWPBJz6Ws5H6JlnF8G74tXrwqzo/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxOTAy/OTM3LTE3MzA5Mzk5/NzktNDE5OS5qcGVn.jpeg"></a>
+            </div>
+            <div class="grid-item">
+                <p>Radiohead - Kid A</p>
+                <p>An experimental and hauntingly beautiful record that redefined alternative music in the 2000s.</p>
+                <a href="https://randoms.lv/en/artist/611/radiohead/"><img src="https://ik.randoms.lv/tr:n-product/products/esaQz1AuA1kGGUIJtD8faTbSs60rnQLS5jIdB9vPdbJfcAd3KiheV9z3Tju8BnXY1444.png"></a>
+            </div>
+            <div class="grid-item">
+                <p>Mac Demarco - Salad Days</p>
+                <p>A laid-back and introspective album featuring Mac's signature jangly guitar and mellow vocals.</p>
+                <a href="https://randoms.lv/artist/582/mac-demarco/"><img src="https://ik.randoms.lv/tr:n-product/products/10000000000000000uo9kVnB0pgw4sq7vzaOJdvDNiJvXyjAMBP1d7skDKfF3TSl2129.png"></a>
+            </div>   
+        </div>
+    </div>
+</body>
+</html>

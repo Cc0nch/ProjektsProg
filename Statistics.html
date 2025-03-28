@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Corner</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background: #e0e0e0;
+        }
+        .sidebar {
+            width: 300px;
+            background: #3f5252;
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+        .search-container {
+            margin: 20px 0;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .search-container button {
+            width: 100%;
+            padding: 8px;
+            background: #2f3e3e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .content {
+            margin-left: 320px;
+            padding: 20px;
+            background: #f0f0f0;
+            flex: 1;
+        }
+        .header {
+            background: #2f3e3e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 24px;
+        }
+        .top-banner {
+            background: #87a5a5;
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            color: white;
+            font-size: 18px;
+        }
+        .chart-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .data-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .data-table th, .data-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .data-table th {
+            background: #3f5252;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Vinyl Corner</h2>
+        <a href="index.html">Home page</a>
+        <a href="Statistics.html">Statistics</a>
+        <a href="Upload.html">Suggest a vinyl</a>
+        <div class="search-container">
+            <input type="text" placeholder="Search music...">
+            <button>Search</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">Statistics</div>
+        <p>This statistic reveals the most popular music genres, ranked by global listener preferences and streaming data. It highlights the genres that dominate current trends, showcasing the diverse range of styles that resonate with audiences worldwide. From pop and hip-hop to rock, electronic, and classical, this analysis reflects shifts in musical tastes and the influence of cultural movements, digital platforms, and emerging artists. The data provides insight into the ever-evolving landscape of music, offering a snapshot of the genres that are shaping today’s listening habits.</p>
+        <p>Altough the most popular genres never stay the same, in the future things might be different.</p>
+        <div class="top-banner">Most popular genres</div>
+        
+        <div class="chart-container">
+            <canvas id="genreChart"></canvas>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Age Group</th>
+                    <th>First choice</th>
+                    <th>Second choice</th>
+                    <th>Third choice</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>13-17</td>
+                    <td>Pop</td>
+                    <td>Rap/Hip-hop</td>
+                    <td>Electro-dance</td>
+                </tr>
+                <tr>
+                    <td>18-24</td>
+                    <td>Rap/Hip-hop</td>
+                    <td>Pop</td>
+                    <td>Electro-dance</td>
+                </tr>
+                <tr>
+                    <td>25-34</td>
+                    <td>Pop</td>
+                    <td>Rock</td>
+                    <td>Rap/Hip-hop</td>
+                </tr>
+                <tr>
+                    <td>35-44</td>
+                    <td>Rock</td>
+                    <td>Pop</td>
+                    <td>Country</td>
+                </tr>
+                <tr>
+                    <td>45-54</td>
+                    <td>Rock</td>
+                    <td>Country</td>
+                    <td>Pop</td>
+                </tr>
+                <tr>
+                    <td>55-64</td>
+                    <td>Rock</td>
+                    <td>Country</td>
+                    <td>Jazz</td>
+                </tr>
+                <tr>
+                    <td>65+</td>
+                    <td>Classical</td>
+                    <td>Jazz</td>
+                    <td>Rock</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: center;">Source: <a href="https://www.superprof.co.uk/blog/what-are-the-most-listened-to-musical-genres/">Music Popularity Survey</a></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const genreCounts = {};
+            document.querySelectorAll(".data-table tbody td:not(:first-child)").forEach(cell => {
+                const genre = cell.innerText.trim();
+                genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+            });
+            
+            const ctx = document.getElementById("genreChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: Object.keys(genreCounts),
+                    datasets: [{
+                        label: "Most Listened Genres",
+                        data: Object.values(genreCounts),
+                        backgroundColor: "#3f5252",
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+</html>
